@@ -1,0 +1,8 @@
+<p>Here is a list of all your clients:</p>
+
+<% @clients.each do |client| %>
+    <%= link_to(client.name, "/clients/#{client.id}")%>
+    <%= client.description %>
+    <br>
+    <% end %>
+    

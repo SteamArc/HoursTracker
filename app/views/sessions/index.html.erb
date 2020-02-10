@@ -1,0 +1,11 @@
+<p>Here is a list of all the time worked: </p>
+
+
+<% @sessions.each do |session| %>
+<%= session.date %>
+<%= session.client_id %>
+<%= session.hours %>
+<%= session.user_id %>
+<%= session.description %>
+<br>
+<% end %>

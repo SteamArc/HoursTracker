@@ -1,0 +1,14 @@
+<p>This is the page for the user:</p>
+<%= @user.id %>
+<%= @user.email %>
+<br>
+
+<p>Here's this employee's work log:</p>
+
+<% @sessions.each do |session| %>
+<%= session.date %>
+<%= session.hours %>
+
+<%= session.description %>
+<br>
+<% end %>

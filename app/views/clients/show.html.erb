@@ -1,0 +1,16 @@
+<%= @client.name %>
+<div>
+<%= @client.description %>
+</div>
+
+
+<p>Record of Work for Client:</p>
+<% @sessions.each do |session| %>
+<%= session.date %>
+<%= session.id %>
+<%= session.user.email %>
+<%= session.hours %>
+
+<%= session.description %>
+
+<% end %>

@@ -1,0 +1,14 @@
+<p>Your Current User Id is <%=current_user.id%></p>
+
+<%= form_for @session do |f| %>
+
+
+<p>Select the Date:</p> <%= f.date_select :date %>
+<p>Description</p> <%= f.text_area :description %>
+<p>Hours</p><%= f.text_field :hours %>
+
+
+
+<p>Client ID</p><%= f.select :client_id, options_from_collection_for_select(@clients, 'id', 'name') %>
+<%= f.submit %>
+<%end%>

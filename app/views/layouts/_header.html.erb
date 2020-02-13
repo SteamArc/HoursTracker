@@ -1,0 +1,41 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Hours Tracker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  
+
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/clients">By Client<span class="sr-only"></span></a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/users">By User</a>
+      </li>
+      
+
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions/new">New Session</a>
+      </li>
+      
+      <li class="nav-item">
+        <a class="nav-link" href="/sessions">All Sessions</a>
+      </li>
+
+      
+      <li class="nav-item active">
+        <a class="nav-link" href="/users/edit">Edit Profile<span class="sr-only"></span></a>
+      </li>
+      
+    <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" aria-disabled="true"><%=if current_user then "Logged In As: #{current_user.email}" else link_to("Log In", "/users/sign_in") end%></a>
+      </li>
+        
+       
+      
+       </ul>
+  </div>
+</nav>

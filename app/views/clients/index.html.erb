@@ -1,8 +1,31 @@
-<p>Here is a list of all your clients:</p>
 
+
+  <div class="heading">
+       <h1>Here is a list of all your clients:</h1>
+    </div>
+
+
+<table>
+<th>Client</th>
+<th>Description</th>
+<th>Total Hours</th>
 <% @clients.each do |client| %>
-    <%= link_to(client.name, "/clients/#{client.id}")%>
-    <%= client.description %>
-    <br>
-    <% end %>
+<tr>
     
+    <td><%= link_to(client.name, "/clients/#{client.id}")%></td>
+    <td><%= client.description %></td>
+    <td><%= client.total_hours%></td>
+    <td><%= link_to("Edit", "/clients/#{client.id}/edit") %></td>
+    <td><%= button_to "Delete", client, :method => :delete %></td>
+</tr>
+
+
+    <% end %>
+</table>
+
+<table>
+    <tr>
+<td class="centered"><%= link_to "Create a New Client", "/clients/new" %></td>
+<td class="centered"><%= link_to "Create a New Entry", "/sessions/new" %></td>
+</tr>
+</table>

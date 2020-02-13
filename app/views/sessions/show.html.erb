@@ -1,6 +1,10 @@
-<%= @session.user_id %>
-<%= @session.client_id %>
-<%= @session.name %>
-<%= @session.hours %>
-<%= @session.date %>
-<%= @session.description %>
+<p class= "heading">Created/Updated the Entry:</p>
+<table>
+    <tr>
+<td><%= @session.user_id %></td>
+<td><%= @session.client_id %></td>
+<td><%= @session.hours %></td>
+<td><%= @session.date %></td>
+<td><%= @session.description %></td>
+    </tr>
+</table>

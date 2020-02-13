@@ -17,9 +17,21 @@ class ClientsController < ApplicationController
     end
     
     def destroy
+        client = Client.find(params[:id])
+        client.destroy
+        redirect_to "/clients"
     end
     
     def edit
+        @client = Client.find(params[:id])
+    end
+    
+    def update
+        @client = Client.find(params[:id])
+        @client.update(client_params)
+        if @client.save
+            redirect_to "/clients" 
+        end
     end
     
     def index

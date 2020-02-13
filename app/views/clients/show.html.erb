@@ -1,16 +1,45 @@
-<%= @client.name %>
+<div class="heading">
+<h1><%= @client.name %></h1>
 <div>
-<%= @client.description %>
+<h2><%= @client.description %></h2>
+</div>
+<p>Record of Work for Client:</p>
 </div>
 
 
-<p>Record of Work for Client:</p>
-<% @sessions.each do |session| %>
-<%= session.date %>
-<%= session.id %>
-<%= session.user.email %>
-<%= session.hours %>
+<table>
+    <tr>
+        <th>Date</th>
+        <th>Email</th>
+        <th>Hours</th>
+        <th>Description</th>
+        <th>Edit</th>
+    </tr>
+    <% sum = 0 %>
 
-<%= session.description %>
+    <% @sessions.each do |session| %>
 
-<% end %>
+      <tr>
+          <td><%= session.date %></td>
+
+
+      <td><%= session.user.email %></td>
+
+      <td><%= session.hours%> <%sum = sum + session.hours%></td>
+
+      <td><%= session.description %></td>
+      <td><%=link_to "Edit", "/sessions/#{session.id}/edit"%></td>
+      </tr>
+
+    <% end %>
+        <tr>
+        <td>Total:</td>
+        <td>-</td>
+        <td><%= sum %></td>
+        <td>-</td>
+        <td>-</td>
+        </tr>
+</table>
+</table>
+<div class ="centered"> <%= link_to "Add an Entry", "/sessions/new" %></div>
+<div class = "centered"> <%= link_to "Back to Clients", "/clients" %></div>

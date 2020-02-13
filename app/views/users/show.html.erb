@@ -1,14 +1,34 @@
-<p>This is the page for the user:</p>
-<%= @user.id %>
-<%= @user.email %>
-<br>
+<div class="heading">
+    <h1>This is the page for the user:</h1>
+    <h2><%= @user.email %></h2>
+</div>
 
+
+<% sum = 0 %>
 <p>Here's this employee's work log:</p>
-
-<% @sessions.each do |session| %>
-<%= session.date %>
-<%= session.hours %>
-
-<%= session.description %>
-<br>
+<table>
+    <th>Date</th>
+    <th>Client</th>
+    <th>Hours</th>
+    <th>Description</th>
+    <th>Edit</th>
+    <% @sessions.each do |session| %>
+    <tr>
+       <td><%= session.date %></td>
+       <td><%=session.client.name%></td>
+        <td><%= session.hours %> <% sum = sum + session.hours %></td>
+        <td><%= session.description %></td>
+        <td><%= link_to "Edit", "/sessions/#{session.id}/edit"%></td>
+    </tr>
 <% end %>
+    <tr>
+        <td>Total:</td>
+        <td>-</td>
+        <td><%= sum %></td>
+        <td>-</td>
+        <td>-</td>
+    </tr>
+    <tr>
+        <td colspan = "5" class= "centered"><%= link_to "Add an entry", "/sessions/new" %> </td>
+        </tr>
+</table>

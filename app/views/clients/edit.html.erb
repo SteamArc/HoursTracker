@@ -1,0 +1,10 @@
+<p>Your Current Client is <%=@client.name%></p>
+
+<%= form_for @client do |f| %>
+
+
+    Client Name: <%= f.text_field :name %>
+    Client Description <%= f.text_field :description %>
+
+<%= f.submit %>
+<%end%>
